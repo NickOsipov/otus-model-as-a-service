@@ -1,0 +1,11 @@
+yc_token                = ""
+yc_cloud_id             = ""
+yc_folder_id            = ""
+yc_zone                 = "ru-central1-a"
+yc_instance_name        = "docker-vm"
+yc_network_name         = "docker-vm-network"
+yc_subnet_name          = "docker-vm-subnet"
+yc_service_account_name = "docker-vm-manager"
+ubuntu_image_id         = "" # Ubuntu 20.04 LTS
+public_key_path         = ""
+private_key_path        = ""
