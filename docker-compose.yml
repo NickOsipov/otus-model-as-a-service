@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: jupyter
+    container_name: jupyter
+    ports:
+      - "8009:8888"
+    volumes:
+      - .:/app
+    command: ["bash", "scripts/entrypoint-dev-jupyter.sh"]
+    env_file:
+      - .env
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: fastapi
+    container_name: fastapi
+    ports:
+      - "8890:8890"
+    volumes:
+      - .:/app
+    command: ["bash", "scripts/entrypoint-dev-fastapi.sh"]
+    env_file:
+      - .env
