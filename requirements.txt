@@ -1,6 +1,6 @@
-fastapi
-uvicorn
-pydantic
-pandas
-scikit-learn
-loguru
+fastapi==0.115.0
+uvicorn==0.31.0
+pydantic==2.9.2
+pandas==2.2.3
+scikit-learn==1.5.2
+loguru==0.7.2
