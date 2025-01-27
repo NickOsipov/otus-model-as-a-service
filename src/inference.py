@@ -11,6 +11,20 @@ import pandas as pd
 from sklearn.base import BaseEstimator
 
 
+def save_model(model: BaseEstimator, model_path: str) -> None:
+    """
+    Function to save a model to disk.
+
+    Parameters
+    ----------
+    model : BaseEstimator
+        The model to save.
+    model_path : str
+        The path to save the model to.
+    """
+    joblib.dump(model, model_path)
+
+
 def load_model(model_path: str) -> BaseEstimator:
     """
     Function to load a model from disk.

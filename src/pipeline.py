@@ -3,12 +3,12 @@ Main pipeline for the project
 """
 
 import os
-import joblib
 
 from loguru import logger
 
 from src.preprocessing import load_data, split_data
 from src.train import train_model, evaluate_model
+from src.inference import save_model
 
 
 def main() -> None:
@@ -28,7 +28,8 @@ def main() -> None:
 
     logger.info("Saving model")
     os.makedirs("models", exist_ok=True)
-    joblib.dump(model, os.path.join("models", "model.joblib"))
+    model_path = os.path.join("models", "model.joblib")
+    save_model(model, model_path)
 
     logger.info("Evaluating model")
     accuracy = evaluate_model(model, test)
