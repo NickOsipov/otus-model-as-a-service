@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: jupyter
+    container_name: otus-maas-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/app/notebooks
+    command: ["bash", "scripts/entrypoint-jupyter.sh"]
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: fastapi
+    container_name: otus-maas-fastapi
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src
+    command: ["bash", "scripts/entrypoint-fastapi.sh"]

@@ -1,0 +1,16 @@
+FROM python:3.11.4-slim-buster AS base
+WORKDIR /app
+ENV PYTHONPATH=/app
+COPY . .
+RUN pip install -r requirements.txt
+
+# 1 jupyter
+FROM base AS jupyter
+RUN pip install -r requirements-dev.txt
+RUN chmod +x scripts/entrypoint-jupyter.sh
+CMD ["bash", "scripts/entrypoint-jupyter.sh"]
+
+# 2 fastapi
+FROM base AS fastapi
+RUN chmod +x scripts/entrypoint-fastapi.sh
+CMD ["bash", "scripts/entrypoint-fastapi.sh"]
