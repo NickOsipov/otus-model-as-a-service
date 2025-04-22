@@ -7,7 +7,7 @@ __pycache__
 .terraform.lock.hcl
 terraform.tfvars
 terraform.tfstate
-.terraform.tfstate.backup
+terraform.tfstate.backup
 *.ipynb_checkpoints
 -.log
 buf
