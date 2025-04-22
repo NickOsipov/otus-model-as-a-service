@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.jupyter
-    image_name: otus-maas:jupyter
+    image: otus-maas:jupyter
     container_name: otus-maas-jupyter
     ports:
       - "8888:8888"
@@ -15,7 +15,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    image_name: otus-maas:dev
+    image: otus-maas:dev
     container_name: otus-maas-dev
     ports:
       - "8000:8000"
