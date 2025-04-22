@@ -1,0 +1,17 @@
+FROM python:3.11.4-slim-buster
+
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY scripts scripts
+RUN chmod +x scripts/*.sh
+
+COPY src src
+
+ENV PYTHONPATH=/app
+EXPOSE 8000
+
+CMD ["bash", "scripts/entrypoint-prod.sh"]
