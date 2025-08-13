@@ -49,7 +49,7 @@ def make_prediction(features: IrisFeatures) -> dict:
             detail="An error occurred during prediction"
         )
     
-    return {"prediction_class": pred_class}
+    return {"prediction": pred_class}
 
 # {
 #     "sepal_length": 5.1,
