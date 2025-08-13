@@ -15,7 +15,7 @@ env:
   SERVER_HOST: ${{ secrets.SERVER_HOST }}
   SERVER_USER: ${{ secrets.SERVER_USER }}
   SERVER_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-  PYTHON_VERSION: '3.x'
+  PYTHON_VERSION: '3.11'
   LINTERS: 'ruff'
   LINTER_CMD: 'ruff check src'
 

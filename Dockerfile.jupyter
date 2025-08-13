@@ -1,16 +1,14 @@
-FROM python:3.11.4-slim-buster
+FROM python:3.11.4-slim-bookworm
 
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
-COPY requirements-dev.txt requirements-dev.txt
+COPY requirements-jupyter.txt requirements-jupyter.txt
 
 RUN pip install --no-cache-dir -r requirements.txt && \
-    pip install --no-cache-dir -r requirements-dev.txt
+    pip install --no-cache-dir -r requirements-jupyter.txt
 
 COPY scripts scripts
 RUN chmod +x scripts/*.sh
-
-ENV PYTHONPATH=/app
 
 CMD ["bash", "scripts/entrypoint-jupyter.sh"]

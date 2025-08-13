@@ -1,4 +1,4 @@
-FROM python:3.11.4-slim-buster
+FROM python:3.11.4-slim-bookworm
 
 WORKDIR /app
 
@@ -9,6 +9,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY scripts scripts
 RUN chmod +x scripts/*.sh
 
-ENV PYTHONPATH=/app
+ENV PYTHONPATH="/app"
 
 CMD ["bash", "scripts/entrypoint-dev.sh"]

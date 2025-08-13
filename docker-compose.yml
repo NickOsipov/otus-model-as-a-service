@@ -1,5 +1,17 @@
-version: "3.7"
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: otus-maas:dev
+    container_name: otus-maas-dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src
+      - ./models:/app/models
+    command: ["bash", "scripts/entrypoint-dev.sh"]
+
   jupyter:
     build:
       context: .
@@ -11,15 +23,3 @@ services:
     volumes:
       - ./notebooks:/app/notebooks
     command: ["bash", "scripts/entrypoint-jupyter.sh"]
-  fastapi:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    image: otus-maas:dev
-    container_name: otus-maas-dev
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./models:/app/models
-      - ./src:/app/src
-    command: ["bash", "scripts/entrypoint-dev.sh"]

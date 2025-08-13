@@ -36,6 +36,7 @@ def health_check() -> dict:
 @app.post("/predict")
 def make_prediction(features: IrisFeatures) -> dict:
     """Make a prediction by model"""
+    logger.info(f"Making prediction for: {features}")
     try:
         data = pd.DataFrame([features.model_dump()])
         prediction = predict(MODEL, data)
@@ -48,7 +49,7 @@ def make_prediction(features: IrisFeatures) -> dict:
             detail="An error occurred during prediction"
         )
     
-    return {"prediction": pred_class}
+    return {"prediction_class": pred_class}
 
 # {
 #     "sepal_length": 5.1,
