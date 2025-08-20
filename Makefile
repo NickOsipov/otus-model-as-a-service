@@ -36,7 +36,7 @@ up:
 	docker compose up --build
 
 build-prod:
-	docker build -t otus-maas:prod -f Dockerfile.prod .
+	docker build -t otus-maas:0.0.1 -f Dockerfile.prod .
 
 run-prod:
 	docker run \
@@ -46,5 +46,28 @@ run-prod:
 		otus-maas:prod
 
 push-prod:
-	docker tag otus-maas:prod nickosipov/otus-maas:prod
-	docker push nickosipov/otus-maas:prod
+	docker tag otus-maas:0.0.1 nickosipov/otus-maas:0.0.1
+	docker push nickosipov/otus-maas:0.0.1
+
+helm-install-ingress:
+	helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+	helm repo update
+	helm install ingress-nginx ingress-nginx/ingress-nginx \
+		--namespace ingress-nginx \
+		--create-namespace \
+		--set controller.replicaCount=1 \
+		--set controller.nodeSelector."kubernetes\.io/os"=linux \
+		--set controller.admissionWebhooks.enabled=false \
+		--set controller.service.type=LoadBalancer
+
+helm-uninstall-ingress:
+	helm uninstall ingress-nginx -n ingress-nginx
+
+helm-deploy:
+	helm upgrade --install otus-maas helm/otus-maas \
+		--namespace otus-maas \
+		--create-namespace \
+		--set image.tag=${IMAGE_TAG}
+
+helm-destroy:
+	helm uninstall otus-maas -n otus-maas

@@ -30,7 +30,7 @@ class IrisFeatures(BaseModel):
 @app.get("/")
 def health_check() -> dict:
     """Health check"""
-    return {"status": "ok"}
+    return {"status": "okay"}
 
 
 @app.post("/predict")
