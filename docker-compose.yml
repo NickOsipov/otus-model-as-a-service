@@ -1,0 +1,16 @@
+services:
+  otus-maas-dev:
+    image: otus-maas:dev
+    container_name: otus-maas-dev
+    volumes:
+      - ./models:/app/models
+      - ./src:/app/src
+    ports:
+      - "8000:8000"
+  otus-jupyter:
+    image: otus-maas:jupyter
+    container_name: otus-jupyter
+    volumes:
+      - ./notebooks:/app/notebooks
+    ports:
+      - "8888:8888"

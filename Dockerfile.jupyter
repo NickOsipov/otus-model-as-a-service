@@ -1,0 +1,14 @@
+FROM python:3.11.4-slim-bookworm
+
+WORKDIR /app
+
+COPY requirements-jupyter.txt .
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements-jupyter.txt && \
+    pip install --no-cache-dir -r requirements.txt
+
+COPY scripts scripts
+RUN chmod +x scripts/*.sh
+
+CMD ["bash", "scripts/entrypoint-jupyter.sh"]
