@@ -14,10 +14,4 @@ git checkout -t origin/docker
 
 ## План практики
 
-* Установим docker на vm
-* Напишем простой Dockerfile
-* Запустим простой контейнер
-* Подключимся внутрь контейнера
-* Запустим jupyter notebook в контейнере и подключимся к нему
-* Написать dev/prod Dockerfile и docker-compose для проекта c использованием FastAPI
-* Развернуть/протестировать ML модель в контейнере с использованием FastAPI
+* [Создание кластера из terraform](https://github.com/NickOsipov/yc-k8s-zonal)
