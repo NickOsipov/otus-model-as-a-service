@@ -12,3 +12,7 @@ terraform.tfstate.backup
 -.log
 buf
 .env
+github-kubeconfig.yaml
+gitlab-kubeconfig.yaml
+config.txt
+kubeconfig.yaml

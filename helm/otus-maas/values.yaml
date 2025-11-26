@@ -3,8 +3,8 @@ namespace: otus-maas
 
 image:
   repository: nickosipov/otus-maas
-  tag: "0.0.2"
-  pullPolicy: IfNotPresent
+  tag: latest
+  pullPolicy: Always
 
 service:
   protocol: TCP
