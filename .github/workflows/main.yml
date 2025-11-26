@@ -18,7 +18,7 @@ env:
   PYTHON_VERSION: '3.11'
   RELEASE_NAME: 'otus-maas'
   NAMESPACE: 'otus-maas'
-  APP_NAME: 'otus-maas'
+  APP_NAME: 'helm/otus-maas'
 
 jobs:
   # build:
