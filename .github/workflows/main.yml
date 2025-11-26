@@ -50,6 +50,6 @@ jobs:
         namespace-create: 'true'
         chart: '${{ env.APP_NAME }}'
         token: '${{ github.token }}'
-        value-files: "helm/otus-maas/values.yaml"
+        value-files: "./helm/otus-maas/values.yaml"
       env:
         KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
