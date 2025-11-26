@@ -1,3 +1,5 @@
+IMAGE_TAG ?= 0.0.2
+
 build:
 	docker build -t otus-maas:latest .
 
@@ -36,7 +38,7 @@ up:
 	docker compose up --build
 
 build-prod:
-	docker build -t otus-maas:0.0.1 -f Dockerfile.prod .
+	docker build -t otus-maas:prod -f Dockerfile.prod .
 
 run-prod:
 	docker run \
@@ -46,8 +48,8 @@ run-prod:
 		otus-maas:prod
 
 push-prod:
-	docker tag otus-maas:0.0.1 nickosipov/otus-maas:0.0.1
-	docker push nickosipov/otus-maas:0.0.1
+	docker tag otus-maas:prod nickosipov/otus-maas:${IMAGE_TAG}
+	docker push nickosipov/otus-maas:${IMAGE_TAG}
 
 helm-install-ingress:
 	helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx

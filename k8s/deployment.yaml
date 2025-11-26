@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otus-maas
+  namespace: otus-maas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: otus-maas
+  template:
+    metadata:
+      labels:
+        app: otus-maas
+    spec:
+      containers:
+      - name: app
+        image: nickosipov/otus-maas:0.0.2
+        ports:
+        - containerPort: 8000
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
