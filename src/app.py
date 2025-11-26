@@ -30,7 +30,7 @@ class IrisFeatures(BaseModel):
 @app.get("/")
 def health_check() -> dict:
     """Health check"""
-    return {"status": "okay"}
+    return {"status": "ok"}
 
 
 @app.post("/predict")
@@ -49,7 +49,7 @@ def make_prediction(features: IrisFeatures) -> dict:
             detail="An error occurred during prediction"
         )
     
-    return {"prediction": pred_class}
+    return {"prediction-class": pred_class}
 
 # {
 #     "sepal_length": 5.1,

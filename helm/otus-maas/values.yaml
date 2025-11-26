@@ -1,0 +1,24 @@
+appName: otus-maas
+namespace: otus-maas
+
+image:
+  repository: nickosipov/otus-maas
+  tag: "0.0.2"
+  pullPolicy: IfNotPresent
+
+service:
+  protocol: TCP
+  port: 80
+  targetPort: 8000
+  type: ClusterIP
+
+resources:
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
+
+ingress:
+  ingressClassName: nginx

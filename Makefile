@@ -1,4 +1,4 @@
-IMAGE_TAG ?= 0.0.2
+IMAGE_TAG ?= 0.0.3
 
 build:
 	docker build -t otus-maas:latest .
