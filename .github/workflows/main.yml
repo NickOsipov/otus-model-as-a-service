@@ -18,7 +18,7 @@ env:
   PYTHON_VERSION: '3.11'
   RELEASE_NAME: 'otus-maas'
   NAMESPACE: 'otus-maas'
-  APP_NAME: 'helm/otus-maas'
+  CHART_NAME: 'helm/otus-maas'
 
 jobs:
   build:
@@ -49,7 +49,7 @@ jobs:
         release: '${{ env.RELEASE_NAME }}'
         namespace: '${{ env.NAMESPACE }}'
         namespace-create: 'true'
-        chart: '${{ env.APP_NAME }}'
+        chart: '${{ env.CHART_NAME }}'
         token: '${{ github.token }}'
       env:
         KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
