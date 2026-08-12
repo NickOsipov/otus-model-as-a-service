@@ -8,7 +8,7 @@ source .venv/bin/activate
 
 Ветка rest-api:
 ```bash
-git checkout -t origin/rest-api
+git checkout -t origin/rest-api-aug-26
 ```
 
 Ветка docker:

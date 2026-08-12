@@ -3,3 +3,7 @@ uvicorn
 pandas
 scikit-learn
 loguru
+requests
+isort
+black
+ruff

@@ -1,14 +1,13 @@
 import pandas as pd
-
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.base import BaseEstimator
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
 
 def train_model(
     train: pd.DataFrame,
-    model: BaseEstimator=RandomForestClassifier,
-    model_params: dict = {"n_estimators": 100},
+    model_params: dict,
+    model: BaseEstimator = RandomForestClassifier,
 ) -> RandomForestClassifier:
     """
     Function to train a model on the training data.
@@ -32,9 +31,7 @@ def train_model(
     return clf
 
 
-def evaluate_model(
-    model: RandomForestClassifier, test: pd.DataFrame
-) -> float:
+def evaluate_model(model: RandomForestClassifier, test: pd.DataFrame) -> float:
     """
     Function to evaluate the model on the test data.
 

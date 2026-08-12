@@ -1,4 +1,4 @@
-from typing import Optional, Tuple
+from typing import Optional
 
 import pandas as pd
 from sklearn.datasets import load_iris
@@ -37,8 +37,8 @@ def split_data(
     df: pd.DataFrame,
     test_size: float = 0.2,
     random_state: int = 42,
-    stratify: Optional = None,
-) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    stratify: Optional[pd.Series] = None,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
     """
     Function to split the data into training and test sets.
 
