@@ -38,7 +38,7 @@ def make_prediction(features: IrisFeatures):
     try:
         data = pd.DataFrame([features.model_dump()])
         prediction = predict(MODEL, data)
-        pred_class = IRIS_CLASSES[prediction[10]]
+        pred_class = IRIS_CLASSES[prediction[0]]
     except (ValueError, KeyError, RuntimeError, IndexError) as e:
         logger.error(f"Prediction error: {e}")
         raise HTTPException(
