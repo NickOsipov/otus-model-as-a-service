@@ -10,3 +10,7 @@ terraform.tfstate
 .terraform.tfstate.backup
 *.ipynb_checkpoints
 -.log
+.env
+config.txt
+github-kubeconfig.yaml
+buf
