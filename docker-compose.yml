@@ -2,5 +2,23 @@ services:
   fastapi-app:
     ports:
       - "8000:8000"
-    image: nickosipov/otus-model-as-a-service:0.0.101
+    image: nickosipov/otus-model-as-a-service:0.0.102
     container_name: otus-model-as-a-service
+    env_file:
+      - .env
+
+  prediction-store:
+    image: postgres:15
+    container_name: prediction-store
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: prediction_store
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
