@@ -1,0 +1,21 @@
+19917  docker --version
+19918  docker run hello-world
+19919  docker rm 5673312237bf
+19920  docker rm sharp_kalam
+19921  docker rm ff87727bed30
+19922  docker stop ff87727bed30
+19923  docker ps
+19924  docker build -t simple-app .
+19925  docker run simple-app
+19926  docker rm faa3d7d29ec9
+19927  docker --help
+19928  docker run --help
+19929  docker run --name simple-app-2 simple-app
+19930  docker ps -a
+19931  docker run --name simple-app simple-app
+19932  docker rm $(docker ps -qa)
+19933  docker run --rm --name simple-app simple-app
+19934  docker run --rm --name simple-app simple-app bash
+19935  docker run -it --rm --name simple-app simple-app bash
+19936  docker run -it --rm --env-file .env --name simple-app simple-app bash
+19937  history
