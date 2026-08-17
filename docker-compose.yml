@@ -2,5 +2,5 @@ services:
   fastapi-app:
     ports:
       - "8000:8000"
-    image: otus-model-as-a-service:0.0.101
+    image: nickosipov/otus-model-as-a-service:0.0.101
     container_name: otus-model-as-a-service
