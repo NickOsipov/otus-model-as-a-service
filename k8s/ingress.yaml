@@ -1,0 +1,20 @@
+# ingress.yaml - Otus Model as a Service
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: otus-maas
+  namespace: otus-maas
+  labels:
+    app: otus-maas
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: otus-maas-service
+                port:
+                  number: 80
